@@ -1,0 +1,19 @@
+{
+  "name": "nodeplay",
+  "version": "1.0.0",
+  "description": "just a little node playground",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/longbowww/nodeplay.git"
+  },
+  "author": "",
+  "license": "GPLv3",
+  "bugs": {
+    "url": "https://github.com/longbowww/nodeplay/issues"
+  },
+  "homepage": "https://github.com/longbowww/nodeplay#readme"
+}
