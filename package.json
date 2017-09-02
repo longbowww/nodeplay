@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/longbowww/nodeplay/issues"
   },
-  "homepage": "https://github.com/longbowww/nodeplay#readme"
+  "homepage": "https://github.com/longbowww/nodeplay#readme",
+  "dependencies": {
+    "mongodb": "^2.2.31"
+  }
 }
