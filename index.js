@@ -1,23 +1,28 @@
 'use strict';
 
-let http = require('http');
-let fs = require('fs');
-let MongoClient = require('mongodb').MongoClient;
-// let express = require('express');
+const Koa = require('koa');
+const mongo = require('koa-mongo');
+const app = new Koa();
 
-http.createServer(function (req, res) {
-    res.writeHead(200, {'Content-Type': 'text/plain'});
-    
-    MongoClient.connect('mongodb://localhost:27017/centerupp', function (err, db) {
-        if (err) throw err;
-        
-        db.collection('user').find().toArray(function (err, result) {
-            if (err) throw err;
-            
-            res.write(String(JSON.stringify(result)));
-            res.end();
-        })
-    });
-}).listen(1337);
+app.use(mongo({
+    uri: 'mongodb://localhost:27017/centerupp',
+    max: 100,
+    min: 1
+}));
+
+// app.use(async (ctx, next) => {
+//     ctx.set('Content-Type', 'application/json');
+// });
+
+app.use(async (ctx, next) => {
+    ctx.body = await ctx.mongo.collection('user').find({}).toArray();
+});
+
+app.on('error', (err, ctx) => {
+    log.error('server error', err, ctx)
+});
+
+
+app.listen(1337);
 
 

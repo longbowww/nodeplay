@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/longbowww/nodeplay#readme",
   "dependencies": {
+    "koa": "^2.3.0",
+    "koa-mongo": "^1.2.1",
     "mongodb": "^2.2.31"
   }
 }
